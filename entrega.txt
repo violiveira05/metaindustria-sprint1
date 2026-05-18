@@ -3,10 +3,12 @@ Sprint 1 — Exploração, Requisitos e Modelagem da Solução Metaindústria
 Projeto: SafeField AI — Segurança Proativa no Metaindústria
 
 Integrantes:
-- Nicolas Alvares — RM557271
-- Nome do Integrante 2 — RM000000
-- Nome do Integrante 3 — RM000000
-- Nome do Integrante 4 — RM000000
+| Nome | RM | 
+| Milena Queiroz | 558825 |
+| Nicolas Alvares | 557271 | 
+| Victor Augusto | 558338 | 
+| Gabriel Yeshua | 558273 | 
+| Pedro Henrique | 558867 |
 
 Link do repositório GitHub:
 https://github.com/SEU-USUARIO/safe-field-ai
