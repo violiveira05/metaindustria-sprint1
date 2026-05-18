@@ -11,7 +11,7 @@ Integrantes:
 | Pedro Henrique | 558867 |
 
 Link do repositório GitHub:
-https://github.com/SEU-USUARIO/safe-field-ai
+https://github.com/violiveira05/metaindustria-sprint1.git
 
 Observação:
 O repositório contém README completo, documento de requisitos e diagramas UML da Sprint 1.
