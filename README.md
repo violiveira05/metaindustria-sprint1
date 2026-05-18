@@ -3,11 +3,11 @@
 ## Integrantes
 
 | Nome | RM |
-|---|---|
+| Milena Queiroz  | 558825 |
 | Nicolas Alvares | 557271 |
-| Integrante 2 | RM000000 |
-| Integrante 3 | RM000000 |
-| Integrante 4 | RM000000 |
+| Victor Augusto  | 558338 |
+| Gabriel Yeshua  | 558273 |
+| Pedro Henrique  | 558867 |
 
 ## Contexto do Challenge
 
