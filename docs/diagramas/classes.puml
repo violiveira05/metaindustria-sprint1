@@ -1,0 +1,121 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Usuario {
+  - id: int
+  - nome: string
+  - email: string
+  - senhaHash: string
+  - perfil: string
+  + autenticar(): boolean
+  + alterarSenha(): void
+}
+
+class Operador {
+  - matricula: string
+  - funcao: string
+  - status: string
+  + consultarConformidade(): double
+}
+
+class Supervisor {
+  - registroProfissional: string
+  + validarAlerta(alerta: Alerta): void
+  + encerrarAlerta(alerta: Alerta): void
+}
+
+class GestorIndustrial {
+  - areaResponsavel: string
+  + gerarRelatorio(periodo: string): RelatorioConformidade
+}
+
+class Setor {
+  - id: int
+  - nome: string
+  - nivelRisco: string
+  + listarEpisObrigatorios(): List<EPI>
+}
+
+class EPI {
+  - id: int
+  - nome: string
+  - tipo: string
+  - obrigatorio: boolean
+  + validarObrigatoriedade(): boolean
+}
+
+class Camera {
+  - id: int
+  - identificador: string
+  - localizacao: string
+  - status: string
+  + capturarFrame(): Frame
+}
+
+class Frame {
+  - id: int
+  - dataHora: DateTime
+  - imagemReferencia: string
+}
+
+class DetectorIA {
+  - modelo: string
+  - versao: string
+  + analisarFrame(frame: Frame): ResultadoDeteccao
+  + detectarEPI(frame: Frame): List<EPI>
+}
+
+class ResultadoDeteccao {
+  - id: int
+  - confianca: double
+  - episDetectados: List<EPI>
+  - statusConformidade: string
+  + possuiNaoConformidade(): boolean
+}
+
+class EventoRisco {
+  - id: int
+  - dataHora: DateTime
+  - tipo: string
+  - descricao: string
+  - nivelRisco: string
+  + classificarRisco(): string
+}
+
+class Alerta {
+  - id: int
+  - dataHora: DateTime
+  - status: string
+  - mensagem: string
+  + enviar(): void
+  + validar(): void
+  + encerrar(): void
+}
+
+class RelatorioConformidade {
+  - id: int
+  - periodoInicio: Date
+  - periodoFim: Date
+  - percentualConformidade: double
+  - totalAlertas: int
+  + calcularIndicadores(): void
+  + exportarPDF(): void
+}
+
+Usuario <|-- Operador
+Usuario <|-- Supervisor
+Usuario <|-- GestorIndustrial
+
+Setor "1" o-- "0..*" Operador
+Setor "1" o-- "1..*" Camera
+Setor "1" o-- "1..*" EPI
+Camera "1" --> "0..*" Frame
+DetectorIA "1" --> "0..*" ResultadoDeteccao
+Frame "1" --> "1" ResultadoDeteccao
+ResultadoDeteccao "1" --> "0..1" EventoRisco
+EventoRisco "1" --> "1" Alerta
+Supervisor "1" --> "0..*" Alerta
+GestorIndustrial "1" --> "0..*" RelatorioConformidade
+RelatorioConformidade "1" --> "0..*" EventoRisco
+Operador "1" --> "0..*" EventoRisco
+@enduml

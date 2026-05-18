@@ -1,0 +1,45 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Operador de\nChão de Fábrica" as Operador
+actor "Supervisor de\nSegurança" as Supervisor
+actor "Gestor\nIndustrial" as Gestor
+actor "Sistema de IA" as IA
+
+rectangle "SafeField AI" {
+  usecase "Monitorar uso\nde EPIs" as UC1
+  usecase "Detectar ausência\nde EPI" as UC2
+  usecase "Registrar evento\nde risco" as UC3
+  usecase "Emitir alerta\nem tempo real" as UC4
+  usecase "Visualizar dashboard\nde alertas" as UC5
+  usecase "Validar ocorrência" as UC6
+  usecase "Encerrar alerta" as UC7
+  usecase "Gerar relatório\nde conformidade" as UC8
+  usecase "Cadastrar operador" as UC9
+  usecase "Cadastrar setor" as UC10
+  usecase "Cadastrar EPI\nobrigatório" as UC11
+  usecase "Configurar câmera" as UC12
+  usecase "Consultar histórico\nde eventos" as UC13
+}
+
+Operador --> UC1
+IA --> UC1
+IA --> UC2
+Supervisor --> UC5
+Supervisor --> UC6
+Supervisor --> UC7
+Supervisor --> UC9
+Supervisor --> UC10
+Supervisor --> UC11
+Supervisor --> UC12
+Gestor --> UC8
+Gestor --> UC13
+
+UC1 .> UC2 : <<include>>
+UC2 .> UC3 : <<include>>
+UC3 .> UC4 : <<include>>
+UC5 .> UC6 : <<extend>>
+UC6 .> UC7 : <<include>>
+UC8 .> UC13 : <<include>>
+@enduml

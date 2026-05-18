@@ -1,0 +1,32 @@
+@startuml
+start
+
+:Capturar frame da câmera do setor;
+:Enviar frame para o módulo de IA;
+:Identificar operador e EPIs visíveis;
+:Consultar EPIs obrigatórios do setor/função;
+
+if (Todos os EPIs obrigatórios foram detectados?) then (Sim)
+  :Registrar conformidade operacional;
+  :Atualizar indicadores do dashboard;
+else (Não)
+  :Classificar tipo de não conformidade;
+  :Calcular nível de risco;
+  :Registrar evento de risco;
+  :Gerar alerta em tempo real;
+  :Exibir alerta no dashboard do supervisor;
+
+  if (Supervisor valida ocorrência?) then (Sim)
+    :Adicionar comentário ou ação corretiva;
+    :Orientar operador em campo;
+    :Encerrar alerta;
+    :Atualizar histórico e indicadores;
+  else (Não)
+    :Marcar alerta como falso positivo;
+    :Registrar justificativa;
+    :Atualizar histórico do evento;
+  endif
+endif
+
+stop
+@enduml
